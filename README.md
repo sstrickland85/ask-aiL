@@ -45,7 +45,7 @@ venv\Scripts\activate
 ### Step 2: Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/rag-application.git .
+git clone https://github.com/sstrickland85/ask-aiL.git
 ```
 
 ### Step 3: Install Dependencies
