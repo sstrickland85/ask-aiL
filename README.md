@@ -46,8 +46,33 @@ python -m venv .venv
 
 ### Step 2: Clone the Repository
 
+**NOTE**: if you've already configured an SSH key for your GitHub profile and current device, skip to step 2c
+
+#### Step 2a: Generate SSH key
+Using the link below, complete sections **Generating a new SSH key** and **Adding your SSH key to the ssh-agent**
+
+ <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>
+
+
+
+**NOTE**: Save the key in the default location. It is not necessary to create a passphrase, but ensure you remove the `UseKeychain` line
+from the `/.ssh/config` file if you omit the passphrase.
+
+#### Step 2b: Add the SSH public key to your GitHub account
+Using the link below, complete the section **Adding a new SSH key to your account** 
+
+<https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account>
+
+
+
+#### Step 2c: Clone the repo using SSH
+- Go to the main repo <https://github.com/sstrickland85/ask-aiL>
+- Select the Code dropdown (**green button**), select SSH, and copy the URL to clipboard
+- In terminal, navigate to the project directory from step 1
+- Run the `git clone` *pasted_url* to clone the repo e.g.:
 ```bash
-git clone https://github.com/sstrickland85/ask-aiL.git
+cd /Users/home_dir/rag-project
+git clone git@github.com:username/private-repo.git
 ```
 
 ### Step 3: Install Dependencies
