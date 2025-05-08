@@ -25,10 +25,10 @@ mkdir rag-project
 cd rag-project
 
 # Create a virtual environment
-python3 -m venv venv
+python3 -m venv .venv
 
 # Activate the virtual environment
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 #### For Windows:
@@ -38,10 +38,10 @@ mkdir rag-project
 cd rag-project
 
 # Create a virtual environment
-python -m venv venv
+python -m venv .venv
 
 # Activate the virtual environment
-venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 ### Step 2: Clone the Repository
