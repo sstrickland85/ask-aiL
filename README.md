@@ -12,7 +12,8 @@ A Python application that implements Retrieval-Augmented Generation (RAG) using 
 - Ragie.ai API key
 - OpenAI API key
 
-**NOTE: my keys are in the .env file, use these for initial tests**
+**NOTE: .env.example is a template. You will need my keys and then remove .example
+from the file name.**
 
 ### Step 1: Set Up Your Environment
 
