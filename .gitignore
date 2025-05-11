@@ -60,6 +60,10 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# Log files
+logs/
+*.log
+
 # Translations
 *.mo
 *.pot

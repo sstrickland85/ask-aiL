@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RAG Chat Interface</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 15px 0;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            padding: 0 20px;
+            font-size: 24px;
+        }
+        .chat-container {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .chat-panel {
+            flex: 2;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-right: 20px;
+        }
+        .info-panel {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .query-form {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .query-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .submit-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #1557b0;
+        }
+        .response-container {
+            background-color: #f0f7ff;
+            border-left: 4px solid #1a73e8;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .chunk {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .chunk-score {
+            font-weight: bold;
+            color: #1a73e8;
+        }
+        .error {
+            background-color: #fff2f0;
+            border-left: 4px solid #ff4d4f;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #cf1322;
+            border-radius: 4px;
+        }
+        .toggle-btn {
+            background-color: #eee;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .toggle-btn:hover {
+            background-color: #ddd;
+        }
+        @media (max-width: 768px) {
+            .chat-container {
+                flex-direction: column;
+            }
+            .chat-panel {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>aiLeaders RAG Chat</h1>
+    </header>
+
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-panel">
+                <h2>Ask a Question</h2>
+
+                <form action="/chat" method="post" class="query-form">
+                    <input type="text" name="query" class="query-input" placeholder="Enter your question..." value="{{ query if query else '' }}" maxlength="1000" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+
+                {% if error %}
+                <div class="error">
+                    <p>Error: {{ error }}</p>
+                </div>
+                {% endif %}
+
+                {% if response %}
+                <h3>Response:</h3>
+                <div class="response-container">
+                    {{ response }}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="info-panel">
+                <h3>Retrieved Sources</h3>
+                {% if chunks %}
+                <button class="toggle-btn" id="toggleChunks">Show/Hide Sources</button>
+
+                <div id="chunksContainer" style="display: none;">
+                    {% for chunk in chunks %}
+                    <div class="chunk">
+                        <div class="chunk-score">Score: {{ "%.4f"|format(chunk.score) }}</div>
+                        <p>{{ chunk.text }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p>Submit a query to see retrieved sources.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Safe event listener attachment with feature detection
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButton = document.getElementById('toggleChunks');
+            var chunksContainer = document.getElementById('chunksContainer');
+
+            if (toggleButton && chunksContainer) {
+                toggleButton.addEventListener('click', function() {
+                    if (chunksContainer.style.display === 'none') {
+                        chunksContainer.style.display = 'block';
+                    } else {
+                        chunksContainer.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

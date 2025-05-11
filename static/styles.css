@@ -1,0 +1,71 @@
+/* Additional styles can be added here if needed */
+.history-item {
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: .25rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid #ddd;
+}
+
+.history-query {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.history-response {
+    white-space: pre-wrap;
+}
+
+.chart-container {
+    margin-top: 20px;
+    height: 300px;
+}
+
+/* Dark mode toggle */
+.dark-mode {
+    background-color: #222;
+    color: #eee;
+}
+
+.dark-mode .chat-panel,
+.dark-mode .info-panel {
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.dark-mode .response-container {
+    background-color: #2a3a4a;
+    border-left: 4px solid #4a8cff;
+}
+
+.dark-mode .chunk {
+    background-color: #444;
+    border: 1px solid #555;
+}
+
+.dark-mode .query-input {
+    background-color: #444;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+.dark-mode .toggle-btn {
+    background-color: #555;
+    color: #eee;
+}
+
+.dark-mode .toggle-btn:hover {
+    background-color: #666;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .chat-container {
+        flex-direction: column;
+    }
+
+    .chat-panel {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
