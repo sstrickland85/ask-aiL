@@ -90,23 +90,6 @@ With your virtual environment activated, run the application:
 ```bash
 python start_app.py
 ```
-
-## Basic Commands
-
-- Type your questions at the prompt to get answers from your documents
-- Type `help` to see available commands
-- Type `exit` to quit the application
-
-## Project Structure
-
-- `start_app.py`: Entry point for the application
-- `config.py`: Configuration and environment variables
-- `rag/`: Main application package
-  - `clients/`: API client implementations
-  - `app.py`: Core RAG application logic
-- `.env.example`: Example environment variable file
-- `requirements.txt`: Required Python packages
-
 ## Future Enhancements
 
 - Document management features
@@ -117,3 +100,13 @@ python start_app.py
 - **ImportError or ModuleNotFoundError**: Make sure your virtual environment is activated and all dependencies are installed
 - **API Key Errors**: Verify that your `.env` file exists and contains valid API keys
 - **URL Errors**: If you encounter endpoint errors, check with the API provider for the correct URLs
+
+## Project Structure
+
+- `start_app.py`: Entry point for the application
+- `config.py`: Configuration and environment variables
+- `rag/`: Main application package
+  - `clients/`: API client implementations
+  - `app.py`: Core RAG application logic
+- `.env.example`: Example environment variable file
+- `requirements.txt`: Required Python packages
