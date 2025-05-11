@@ -16,6 +16,7 @@ A Python application that implements Retrieval-Augmented Generation (RAG) using 
 **NOTE: .env.example is a template. You will need my keys and then remove .example
 from the file name.**
 
+## Installation
 ### Step 1: Set Up Your Environment
 
 Create a directory for the project and set up a virtual environment:
