@@ -6,11 +6,12 @@ A Python application that implements Retrieval-Augmented Generation (RAG) using 
 
 - Generate responses using an LLM based on document context
 - View relevant chunks used to contextualize LLM response
+- Generates JSON log files in the project directory /logs
 
 ## Prerequisites
 - Python 3.8 or higher
-- Ragie.ai API key
-- OpenAI API key
+- Ragie.ai API key **(email me)**
+- OpenAI API key **(email me)**
 
 **NOTE: .env.example is a template. You will need my keys and then remove .example
 from the file name.**
@@ -26,7 +27,7 @@ mkdir rag-project
 cd rag-project
 
 # Create a virtual environment
-python3 -m venv .venv
+python -m venv --prompt ask-aiL .venv
 
 # Activate the virtual environment
 source .venv/bin/activate
@@ -39,7 +40,7 @@ mkdir rag-project
 cd rag-project
 
 # Create a virtual environment
-python -m venv .venv
+python -m venv --prompt ask-aiL .venv
 
 # Activate the virtual environment
 .venv\Scripts\activate
@@ -87,7 +88,7 @@ pip install -r requirements.txt
 With your virtual environment activated, run the application:
 
 ```bash
-python main.py
+python start_app.py
 ```
 
 ## Basic Commands
@@ -98,7 +99,7 @@ python main.py
 
 ## Project Structure
 
-- `main.py`: Entry point for the application
+- `start_app.py`: Entry point for the application
 - `config.py`: Configuration and environment variables
 - `rag/`: Main application package
   - `clients/`: API client implementations
@@ -108,7 +109,6 @@ python main.py
 
 ## Future Enhancements
 
-- Web interface using Flask/FastAPI
 - Document management features
 - Support for local LLM implementations
 
