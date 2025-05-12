@@ -1,9 +1,10 @@
 # RAG Application
 
-A Python application that implements Retrieval-Augmented Generation (RAG) using Ragie for document chunking/vectorizing and an external LLM API for response generation.
+Ask AI leadership questions. Check your understanding and refine existing knowledge.
+
+![RAG Chat Interface](docs/ask-aiL-UI.png)
 
 ## Features
-
 - Generate responses using an LLM based on document context
 - View relevant chunks used to contextualize LLM response
 - Generates JSON log files in the project directory /logs
